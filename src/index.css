@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 210 20% 98%;
+    --foreground: 215 50% 15%;
+    
+    /* Navy Blue - Trust & Professionalism */
+    --primary: 215 60% 20%;
+    --primary-foreground: 40 50% 95%;
+    
+    /* Amber/Gold - Warmth & Respect */
+    --secondary: 38 90% 55%;
+    --secondary-foreground: 215 50% 15%;
+    
+    /* Muted tones for UI */
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 20% 45%;
+    
+    --accent: 38 85% 50%;
+    --accent-foreground: 215 50% 15%;
+    
+    /* Cards & Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 215 50% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 50% 15%;
+    
+    /* Borders */
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 215 60% 20%;
+    
+    /* Semantic Colors */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 145 60% 40%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 90% 55%;
+    --warning-foreground: 215 50% 15%;
+    
+    /* Sidebar - Deep Navy */
+    --sidebar-background: 215 60% 12%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 38 90% 55%;
+    --sidebar-primary-foreground: 215 50% 15%;
+    --sidebar-accent: 215 50% 18%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 215 40% 20%;
+    --sidebar-ring: 38 90% 55%;
+    
+    /* Chart Colors */
+    --chart-1: 215 60% 20%;
+    --chart-2: 38 90% 55%;
+    --chart-3: 145 60% 40%;
+    --chart-4: 200 70% 50%;
+    --chart-5: 280 60% 50%;
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 215 50% 8%;
+    --foreground: 210 20% 95%;
+    
+    --primary: 38 90% 55%;
+    --primary-foreground: 215 50% 10%;
+    
+    --secondary: 215 40% 25%;
+    --secondary-foreground: 210 20% 95%;
+    
+    --muted: 215 30% 15%;
+    --muted-foreground: 210 15% 60%;
+    
+    --accent: 38 85% 50%;
+    --accent-foreground: 215 50% 10%;
+    
+    --card: 215 45% 12%;
+    --card-foreground: 210 20% 95%;
+    
+    --popover: 215 45% 12%;
+    --popover-foreground: 210 20% 95%;
+    
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 38 90% 55%;
+    
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 145 60% 40%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 90% 55%;
+    --warning-foreground: 215 50% 15%;
+    
+    --sidebar-background: 215 55% 6%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 38 90% 55%;
+    --sidebar-primary-foreground: 215 50% 10%;
+    --sidebar-accent: 215 45% 15%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 215 40% 15%;
+    --sidebar-ring: 38 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Elegant Card Styles */
+  .card-elegant {
+    @apply bg-card rounded-xl shadow-sm border border-border/50;
+    box-shadow: 0 4px 20px -4px hsl(215 50% 15% / 0.08);
+  }
+  
+  .card-elegant:hover {
+    box-shadow: 0 8px 30px -8px hsl(215 50% 15% / 0.12);
+  }
+  
+  /* Gradient Backgrounds */
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(215 60% 20%) 0%, hsl(215 55% 28%) 100%);
+  }
+  
+  .gradient-amber {
+    background: linear-gradient(135deg, hsl(38 90% 55%) 0%, hsl(32 85% 50%) 100%);
+  }
+  
+  .gradient-subtle {
+    background: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(210 15% 95%) 100%);
+  }
+  
+  /* Status Indicators */
+  .status-live {
+    @apply bg-success text-success-foreground;
+  }
+  
+  .status-scheduled {
+    @apply bg-secondary text-secondary-foreground;
+  }
+  
+  .status-offline {
+    @apply bg-muted text-muted-foreground;
+  }
+  
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+  
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── Scroll Reveal Animations ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal-scale.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Stagger delays */
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+  .delay-600 { transition-delay: 600ms; }
+
+  /* ── Prefers-reduced-motion: disable all transitions ── */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
